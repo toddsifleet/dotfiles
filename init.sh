@@ -1,14 +1,13 @@
 #!/bin/bash
+dir="$( cd "$( dirname "$0" )" && pwd )"
+files=$dir/*
 
-dir=~/dotfiles;
-
-files="bash_profile vimrc tmux.conf"
-mkdir -p $backup
-for file in $files
+for file in "$dir"/*
 do
-  if [ ! -f "~/.$file" ]
+  name=~/.$(basename $file)
+  if [ ! -f $name ]
   then
-    touch ~/.$file
+    touch $name
   fi
-  echo "source ~/dotfiles/$file" >> ~/.$file
+  echo "source $file" >> $name
 done
