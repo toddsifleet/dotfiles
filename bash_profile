@@ -41,6 +41,7 @@ if [ -f ~/.bashrc ]; then
 fi
 
 export PATH=/usr/local/bin:$PATH
+bind "set completion-ignore-case on"
 
 echo "Reloaded Bash Profile"
 
