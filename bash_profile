@@ -35,7 +35,7 @@ function list_virtual_envs() {
 }
 
 export PATH=/usr/local/bin:$PATH
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\t] \[$(tput setaf 2)\]\u\[$(tput setaf 6)\]$(__git_ps1)\[$(tput setaf 7)\] \w\n$ \[$(tput sgr0)\]"
+export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\t]\[$(tput setaf 2)\]$(__git_ps1) \[$(tput setaf 3)\]\u\[$(tput setaf 6)\]@\[$(tput setaf 7)\]\w\n$ \[$(tput sgr0)\]"
 
 echo "Reloaded Bash Profile"
 
