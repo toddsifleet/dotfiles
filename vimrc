@@ -24,5 +24,13 @@ nmap <C-p> :tabp<CR>
 
 autocmd BufWritePre *.js,*.rb,*.js,*.hs,*.py :%s/\s\+$//e
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+
+" ctrlp stuff
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['.ctrlp']
+
+" Configure ctrlp for SPEED
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
