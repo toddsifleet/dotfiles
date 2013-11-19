@@ -37,3 +37,4 @@ function list_virtual_envs() {
 export PATH=/usr/local/bin:$PATH
 
 echo "Reloaded Bash Profile"
+
