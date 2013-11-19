@@ -3,7 +3,7 @@
 dir=~/dotfiles;
 backup=~/dotfiles_backup;
 
-files="bash_profile vimrc" 
+files="bash_profile vimrc tmux.conf"
 mkdir -p $backup
 for file in $files
 do
