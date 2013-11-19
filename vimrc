@@ -22,4 +22,7 @@ colorscheme jellybeans
 nmap <C-n> :tabn<CR>
 nmap <C-p> :tabp<CR>
 
-autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.js,*.rb,*.js,*.hs,*.py :%s/\s\+$//e
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_root_markers = ['.ctrlp']
