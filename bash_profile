@@ -26,9 +26,12 @@ function new_venv() {
 	cd - 
 }
 
-function activate() {
-	source ~/.virtual_environments/$1/bin/activate
-}
+for d in ~/.virtual_environments/*
+do
+  if [ -d $d ]; then
+    alias activate-$(basename $d)="source $d/bin/activate"
+  fi
+done
 
 function list_virtual_envs() {
 	ls ~/.virtual_environments
