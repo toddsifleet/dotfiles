@@ -10,6 +10,7 @@ Bundle 'ervandew/supertab'
 Bundle 'tComment'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'thoughtbot/vim-rspec'
+Bundle 'othree/html5.vim'
 
 set rnu
 set shiftwidth=2
