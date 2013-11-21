@@ -42,6 +42,7 @@ if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
 
+set -o vi
 export PATH=/usr/local/bin:$PATH
 bind "set completion-ignore-case on"
 export GIT_PS1_SHOWDIRTYSTATE=true
