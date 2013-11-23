@@ -23,6 +23,9 @@ syntax enable
 set hlsearch
 
 colorscheme jellybeans
+" Right rule
+set colorcolumn=81
+
 nmap <C-T>n :tabn<CR>
 nmap <C-T>p :tabp<CR>
 
