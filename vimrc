@@ -11,6 +11,7 @@ Bundle 'tComment'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'othree/html5.vim'
+Bundle 'stefanoverna/vim-i18n'
 
 set rnu
 set shiftwidth=2
@@ -34,7 +35,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-autocmd BufWritePre *.js,*.rb,*.js,*.hs,*.py :%s/\s\+$//e
+autocmd BufWritePre *.js,*.rb,*.js,*.hs,*.py,*.erb :%s/\s\+$//e
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " ctrlp stuff
@@ -43,9 +44,17 @@ let g:ctrlp_root_markers = ['.ctrlp']
 
 " Configure ctrlp for SPEED
 if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0
 endif
+
+" Find in Files
+command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|cwindow|redraw!
+map <C-S-F> :FindInFiles<SPACE>
+
+" Find All References
+map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
 
 " Rspec.vim mappings
 let g:rspec_command = "!(hash zeus 2> /dev/null && \zeus rspec {spec}) || (hash zeus 2> /dev/null || bash -l -c 'rspec {spec}')"
@@ -53,3 +62,4 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+vmap <Leader>t :call I18nTranslateString()<CR>
