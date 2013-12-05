@@ -1,5 +1,7 @@
 set nocompatible
 
+filetype plugin indent on
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -12,13 +14,17 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'othree/html5.vim'
 Bundle 'stefanoverna/vim-i18n'
+Bundle 'itchyny/lightline.vim'
+Bundle 'tpope/vim-fugitive'
 
+set backspace+=start,eol,indent
 set rnu
 set shiftwidth=2
 set tabstop=2
 set expandtab
 set softtabstop=2
 set smartindent
+set laststatus=2
 
 syntax enable
 set hlsearch
@@ -63,3 +69,35 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 vmap <Leader>t :call I18nTranslateString()<CR>
+
+" Lightline
+function! CurrentFilename()
+  return ('' != expand('%:p') ? substitute(expand('%:p'), expand('$HOME'), '~', 'g') : '[No Name]')
+endfunction
+let g:lightline = {
+  \ 'colorscheme': 'solarized_dark',
+  \ 'active': {
+  \   'left': [
+  \      ['mode', 'paste'],
+  \      ['fugitive', 'readonly', 'filename', 'modified']
+  \   ]
+  \ },
+  \ 'component': {
+  \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+  \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+  \ },
+  \ 'component_function': {
+  \   'filename': 'CurrentFilename'
+  \ },
+  \ 'component_visible_condition': {
+  \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+  \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+  \ }
+\ }
+
+" Toggle Paste-Mode Helper
+function! TogglePasteMode()
+  set paste!
+  redraw!
+endfunction
+map <F2> :call TogglePasteMode()<CR>
