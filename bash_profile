@@ -45,6 +45,14 @@ fi
 set -o vi
 export PATH=/usr/local/bin:$PATH
 bind "set completion-ignore-case on"
+
+function line_count() {
+  find . -name '*.*' | xargs wc -l
+}
+
+function kill_it() {
+  kill $(ps aux | grep $1 | awk '{print $2}')
+}
 export GIT_PS1_SHOWDIRTYSTATE=true
 echo "Reloaded Bash Profile"
 
