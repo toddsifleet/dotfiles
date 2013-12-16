@@ -47,7 +47,12 @@ export PATH=/usr/local/bin:$PATH
 bind "set completion-ignore-case on"
 
 function line_count() {
-  find . -name '*.*' | xargs wc -l
+  if [[ -z "$1" ]]; then
+    file_type='*'
+  else
+    file_type=$1
+  fi
+  find . -name "*.$file_type" | xargs wc -l
 }
 
 function kill_it() {
