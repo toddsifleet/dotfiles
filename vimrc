@@ -21,8 +21,8 @@ set backspace+=start,eol,indent
 set rnu
 set shiftwidth=2
 set tabstop=2
-set expandtab
 set softtabstop=2
+set expandtab
 set smartindent
 set laststatus=2
 
@@ -41,7 +41,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-autocmd BufWritePre *.js,*.rb,*.js,*.hs,*.py,*.erb :%s/\s\+$//e
+autocmd BufWritePre *.md,*.js,*.rb,*.js,*.hs,*.py,*.erb :%s/\s\+$//e
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " ctrlp stuff
