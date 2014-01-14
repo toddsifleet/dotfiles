@@ -1,6 +1,5 @@
 #!/bin/bash
 dir="$( cd "$( dirname "$0" )" && pwd )"
-files=$dir/*
 
 for file in "$dir"/*
 do
@@ -9,9 +8,14 @@ do
   then
     touch $name
   fi
-  echo "source $file" >> tmpfile 
-  cat $name >> tmpfile
-  mv tmpfile $name
+  if grep -Fxq "source $file" $name
+  then
+    echo "$name already sources $file"
+  else
+    echo "source $file" >> tmpfile
+    cat $name >> tmpfile
+    mv tmpfile $name
+  fi
 done
 
 if [ -f ~/.bash_profile ]
@@ -22,3 +26,4 @@ then
   mv tmpfile ~/.bash_profile
 fi
 
+source ~/.bash_profile
