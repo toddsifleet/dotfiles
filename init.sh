@@ -54,5 +54,8 @@ fi
 if [ ! -f ~/.git-completion.bash ]
 then
   curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+  echo "source $dir/.git-completion.bash" >> tmpfile
+  cat ~/.bash_profile >> tmpfile
 fi
+
 source ~/.bash_profile

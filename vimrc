@@ -27,21 +27,31 @@ set smartindent
 set laststatus=2
 
 syntax enable
+" searching
 set hlsearch
+set showmatch
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
 
 colorscheme jellybeans
-" Right rule
 set colorcolumn=81
 
+" tab management
 nmap <C-T>n :tabn<CR>
 nmap <C-T>p :tabp<CR>
 
+" pane navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-autocmd BufWritePre *.md,*.js,*.rb,*.js,*.hs,*.py,*.erb :%s/\s\+$//e
+" shortcuts
+nnoremap <space> zvzz
+
+autocmd BufWritePre *.html,*.md,*.js,*.rb,*.js,*.hs,*.py,*.erb :%s/\s\+$//e
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " ctrlp stuff
