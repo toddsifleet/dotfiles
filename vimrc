@@ -17,6 +17,7 @@ Bundle 'othree/html5.vim'
 Bundle 'stefanoverna/vim-i18n'
 Bundle 'itchyny/lightline.vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
 
 set backspace+=start,eol,indent
 set rnu
@@ -28,32 +29,42 @@ set smartindent
 set laststatus=2
 
 syntax enable
+" searching
 set hlsearch
+set showmatch
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
 
 colorscheme jellybeans
-" Right rule
 set colorcolumn=81
 
+" tab management
 nmap <C-T>n :tabn<CR>
 nmap <C-T>p :tabp<CR>
 
+" pane navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-autocmd BufWritePre *.md,*.js,*.rb,*.js,*.hs,*.py,*.erb :%s/\s\+$//e
+" shortcuts
+nnoremap <space> zvzz
+
+autocmd BufWritePre *.html,*.md,*.js,*.rb,*.js,*.hs,*.py,*.erb :%s/\s\+$//e
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " ctrlp stuff
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_root_markers = ['.ctrlp']
+let g:ctrlp_use_caching = 0
 
 " Configure ctrlp for SPEED
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
 endif
 
 " Find in Files
@@ -101,4 +112,5 @@ function! TogglePasteMode()
   set paste!
   redraw!
 endfunction
+
 map <F2> :call TogglePasteMode()<CR>
