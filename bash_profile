@@ -58,6 +58,15 @@ function line_count() {
 function kill_it() {
   kill $(ps aux | grep $1 | awk '{print $2}')
 }
+
+function add_goto_aliases() {
+  for d in `ls $1`
+  do
+    alias goto-$d="cd $1/$d"
+    alias workon-$d="cd $1/$d; vim"
+  done
+}
+
 export GIT_PS1_SHOWDIRTYSTATE=true
 echo "Reloaded Bash Profile"
 
