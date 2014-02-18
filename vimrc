@@ -16,6 +16,7 @@ Bundle 'othree/html5.vim'
 Bundle 'stefanoverna/vim-i18n'
 Bundle 'itchyny/lightline.vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
 
 set backspace+=start,eol,indent
 set rnu
@@ -55,14 +56,14 @@ autocmd BufWritePre *.html,*.md,*.js,*.rb,*.js,*.hs,*.py,*.erb :%s/\s\+$//e
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " ctrlp stuff
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_root_markers = ['.ctrlp']
+let g:ctrlp_use_caching = 0
 
 " Configure ctrlp for SPEED
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
 endif
 
 " Find in Files
@@ -110,4 +111,5 @@ function! TogglePasteMode()
   set paste!
   redraw!
 endfunction
+
 map <F2> :call TogglePasteMode()<CR>
