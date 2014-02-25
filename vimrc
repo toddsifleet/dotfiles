@@ -19,6 +19,7 @@ Bundle 'itchyny/lightline.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-surround'
 
 set backspace+=start,eol,indent
 set rnu
