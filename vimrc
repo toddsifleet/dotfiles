@@ -18,6 +18,7 @@ Bundle 'stefanoverna/vim-i18n'
 Bundle 'itchyny/lightline.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-dispatch'
 
 set backspace+=start,eol,indent
 set rnu
@@ -75,12 +76,22 @@ map <C-S-F> :FindInFiles<SPACE>
 map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
 
 " Rspec.vim mappings
-let g:rspec_command = "!(hash zeus 2> /dev/null && \zeus rspec {spec}) || (hash zeus 2> /dev/null || bash -l -c 'rspec {spec}')"
+let g:rspec_command = "Dispatch rspec {spec}"
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 vmap <Leader>t :call I18nTranslateString()<CR>
+
+function! UseZeus()
+  let g:rspec_command = "Dispatch zeus rspec {spec}"
+endfunction
+command! UseZeus call UseZeus()
+
+function! NoZeus()
+  let g:rspec_command = "Dispatch rspec {spec}"
+endfunction
+command! NoZeus call NoZeus()
 
 " Lightline
 function! CurrentFilename()

@@ -44,7 +44,9 @@ fi
 
 set -o vi
 export PATH=/usr/local/bin:$PATH
+
 bind "set completion-ignore-case on"
+bind "set show-all-if-ambiguous on"
 
 function line_count() {
   if [[ -z "$1" ]]; then
@@ -66,6 +68,10 @@ function add_goto_aliases() {
     alias workon-$d="cd $1/$d; vim"
   done
 }
+
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 echo "Reloaded Bash Profile"
