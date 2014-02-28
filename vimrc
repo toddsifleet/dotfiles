@@ -23,6 +23,7 @@ Bundle 'tpope/vim-surround'
 
 set backspace+=start,eol,indent
 set rnu
+set nu
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
