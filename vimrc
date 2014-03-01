@@ -23,12 +23,17 @@ Bundle 'tpope/vim-surround'
 
 set backspace+=start,eol,indent
 set rnu
+set expandtab
+set smartindent
+
+" tab size stuff, default to 2 spaces 
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
-set expandtab
-set smartindent
 set laststatus=2
+
+" python should use 4 space
+au FileType python setl sw=4 sts=4
 
 syntax enable
 " searching
