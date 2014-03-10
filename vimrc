@@ -23,6 +23,7 @@ Bundle 'tpope/vim-surround'
 
 set backspace+=start,eol,indent
 set rnu
+set nu
 set expandtab
 set smartindent
 
