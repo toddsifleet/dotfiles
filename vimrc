@@ -1,25 +1,26 @@
 set nocompatible
 
 " having some issues with this at home
-" filetype plugin indent on
+filetype plugin indent on
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'airblade/vim-gitgutter'
+Bundle 'ervandew/supertab'
 Bundle 'gmarik/vundle'
+Bundle 'itchyny/lightline.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'nanotech/jellybeans.vim'
-Bundle 'ervandew/supertab'
-Bundle 'tComment'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'thoughtbot/vim-rspec'
 Bundle 'othree/html5.vim'
 Bundle 'stefanoverna/vim-i18n'
-Bundle 'itchyny/lightline.vim'
+Bundle 'tComment'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-surround'
+Bundle 'vim-ruby/vim-ruby'
 
 set backspace+=start,eol,indent
 set rnu
@@ -61,7 +62,7 @@ nnoremap <C-H> <C-W><C-H>
 " shortcuts
 nnoremap <space> zvzz
 
-autocmd BufWritePre *.html,*.md,*.js,*.rb,*.js,*.hs,*.py,*.erb :%s/\s\+$//e
+autocmd BufWritePre *.yml,*sh,*.html,*.md,*.js,*.rb,*.js,*.hs,*.py,*.erb :%s/\s\+$//e
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " ctrlp stuff
