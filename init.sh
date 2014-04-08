@@ -19,11 +19,11 @@ if [ "$(uname)" == "Darwin" ]; then
     fi
   done
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  apt-get update
+  sudo apt-get update
   for package in "${packages[@]}"
   do
     echo "Installing $package"
-    apt-get install $package
+    sudo apt-get install $package
   done
 fi
 
