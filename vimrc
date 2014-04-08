@@ -78,11 +78,11 @@ if executable('ag')
 endif
 
 " Find in Files
-command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|cwindow|redraw!
+command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args> * |cwindow|redraw!
 map <C-S-F> :FindInFiles<SPACE>
 
 " Find All References
-map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
+map <C-K> :grep! "\b<C-R><C-W>\b" * <CR>:cw<CR><CR>
 
 " Rspec.vim mappings
 let g:rspec_command = "Dispatch rspec {spec}"
