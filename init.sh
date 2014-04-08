@@ -20,7 +20,7 @@ if [ "$(uname)" == "Darwin" ]; then
   done
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   apt-get update
-  for package in "{$packages[@]}"
+  for package in "${packages[@]}"
   do
     echo "Installing $package"
     apt-get install $package
@@ -76,3 +76,4 @@ then
 fi
 
 source ~/.bash_profile
+vim -c "BundleInstall" -c 'qa'
