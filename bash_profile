@@ -36,7 +36,6 @@ function list_virtual_envs() {
 	ls ~/.virtual_environments
 }
 
-export PS1='\[$(tput bold)\]\[$(tput setaf 1)\][\t]\[$(tput setaf 2)\]$(__git_ps1 " (%s)") \[$(tput setaf 4)\]\u@\h: \[$(tput setaf 7)\]\w\n$ \[$(tput sgr0)\]'
 
 if [ -f ~/.bashrc ]; then
    source ~/.bashrc
@@ -74,5 +73,6 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 export GIT_PS1_SHOWDIRTYSTATE=true
+export PS1='\[$(tput bold)\]\[$(tput setaf 1)\][\t]\[$(tput setaf 2)\]$(__git_ps1 " (%s)") \[$(tput setaf 4)\]\u@\h: \[$(tput setaf 7)\]\w\n$ \[$(tput sgr0)\]'
 echo "Reloaded Bash Profile"
 
