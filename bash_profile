@@ -1,8 +1,3 @@
-# for snap
-PATH=$HOME/.cabal/bin:$PATH
-PATH=/Users/toddsifleet/Library/Haskell/ghc-7.6.3/lib:$PATH
-export PATH=$HOME/Library/Haskell/bin:$PATH
-
 # for node
 export NODE_PATH=/usr/local/lib/node:$NODE_PATH
 
