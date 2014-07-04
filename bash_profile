@@ -1,26 +1,13 @@
-# for node
-export NODE_PATH=/usr/local/lib/node:$NODE_PATH
-
-#brew ruby
-export PATH=/usr/local/opt/ruby/bin:$PATH
-
-# pip should only run if there is a virtualenv currently activated
-export PIP_REQUIRE_VIRTUALENV=true
-
-# cache pip-installed packages to avoid re-downloading
-export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
-
+/* export PIP_REQUIRE_VIRTUALENV=true */
 export TERM=xterm-256color
 
-alias staticpy='python ~/Dropbox/github/staticpy/staticpy/main.py'
-
 function new_venv() {
-	cd ~/.virtual_environments
+	cd ~/.virtualenvs
 	virtualenv $1
 	cd - 
 }
 
-for d in ~/.virtual_environments/*
+for d in ~/.virtualenvs/*
 do
   if [ -d $d ]; then
     alias activate-$(basename $d)="source $d/bin/activate"
@@ -28,7 +15,7 @@ do
 done
 
 function list_virtual_envs() {
-	ls ~/.virtual_environments
+	ls ~/.virtualenvs
 }
 
 
@@ -60,6 +47,13 @@ function add_goto_aliases() {
   do
     alias goto-$d="cd $1/$d"
     alias workon-$d="cd $1/$d; vim"
+  done
+}
+
+function set_up_vagrant_directory() {
+  for d in `ls $1`
+  do
+    alias vagrant-$d="(cd $1/$d; vagrant ssh)"
   done
 }
 
