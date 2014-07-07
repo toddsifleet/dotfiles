@@ -149,3 +149,9 @@ function! StartUp()
 endfunction
 
 autocmd VimEnter * call StartUp()
+
+map <Leader>d :call InsertPDBLine()<CR>
+function! InsertPDBLine()
+  let trace = expand("import ipdb\nipdb.set_trace()")
+  execute "normal o".trace
+endfunction
