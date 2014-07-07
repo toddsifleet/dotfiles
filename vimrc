@@ -1,8 +1,8 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
@@ -24,6 +24,9 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tacahiroy/ctrlp-funky'
+
+call vundle#end()
+filetype plugin indent on
 
 set backspace+=start,eol,indent
 set rnu
