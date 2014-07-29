@@ -143,7 +143,6 @@ function! TogglePasteMode()
 endfunction
 
 map <F2> :call TogglePasteMode()<CR>
-set clipboard=unnamed
 
 
 " ctags
