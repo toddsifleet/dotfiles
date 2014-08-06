@@ -4,6 +4,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'derekwyatt/vim-scala'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
 Plugin 'gmarik/vundle'
