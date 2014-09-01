@@ -6,21 +6,25 @@ filetype plugin indent on
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'airblade/vim-gitgutter'
+Bundle 'ervandew/supertab'
 Bundle 'gmarik/vundle'
 Bundle 'alfredodeza/pytest.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'ervandew/supertab'
-Bundle 'tComment'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'othree/html5.vim'
-Bundle 'stefanoverna/vim-i18n'
 Bundle 'itchyny/lightline.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/ctrlp.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'othree/html5.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'stefanoverna/vim-i18n'
+Bundle 'tComment'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-surround'
+Bundle 'vim-ruby/vim-ruby'
 
 set backspace+=start,eol,indent
 set rnu
@@ -38,6 +42,7 @@ set laststatus=2
 au FileType python setl sw=4 sts=4
 
 syntax enable
+filetype plugin indent on
 " searching
 set hlsearch
 set showmatch
@@ -62,13 +67,13 @@ nnoremap <C-H> <C-W><C-H>
 " shortcuts
 nnoremap <space> zvzz
 
-autocmd BufWritePre *.html,*.md,*.js,*.rb,*.js,*.hs,*.py,*.erb :%s/\s\+$//e
+autocmd BufWritePre *.yml,*sh,*.html,*.md,*.js,*.rb,*.js,*.hs,*.py,*.erb,*.coffee,*.styl :%s/\s\+$//e
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " ctrlp stuff
 let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_root_markers = ['.ctrlp']
-let g:ctrlp_use_caching = 0
+let g:ctrlp_use_caching = 1
 
 " Configure ctrlp for SPEED
 if executable('ag')
@@ -77,11 +82,9 @@ if executable('ag')
 endif
 
 " Find in Files
-command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args>|cwindow|redraw!
+command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args> * |cwindow|redraw!
 map <C-S-F> :FindInFiles<SPACE>
 
-" Find All References
-map <C-K> :grep! "\b<C-R><C-W>\b"<CR>:cw<CR><CR>
 
 " Rspec.vim mappings
 let g:rspec_command = "Dispatch rspec {spec}"
@@ -133,3 +136,25 @@ function! TogglePasteMode()
 endfunction
 
 map <F2> :call TogglePasteMode()<CR>
+set clipboard=unnamed
+
+
+" ctags
+set tags=./.tags;
+
+" nerdtree
+let NERDTreeIgnore = ['\.pyc$']
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+function! StartUp()
+    if 0 == argc()
+        NERDTree
+    end
+endfunction
+
+autocmd VimEnter * call StartUp()
+
+map <Leader>d :call InsertPDBLine()<CR>
+function! InsertPDBLine()
+  let trace = expand("import ipdb\nipdb.set_trace()")
+  execute "normal o".trace
+endfunction

@@ -1,31 +1,13 @@
-# for snap
-PATH=$HOME/.cabal/bin:$PATH
-PATH=/Users/toddsifleet/Library/Haskell/ghc-7.6.3/lib:$PATH
-export PATH=$HOME/Library/Haskell/bin:$PATH
-
-# for node
-export NODE_PATH=/usr/local/lib/node:$NODE_PATH
-
-#brew ruby
-export PATH=/usr/local/opt/ruby/bin:$PATH
-
-# pip should only run if there is a virtualenv currently activated
-export PIP_REQUIRE_VIRTUALENV=true
-
-# cache pip-installed packages to avoid re-downloading
-export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
-
+/* export PIP_REQUIRE_VIRTUALENV=true */
 export TERM=xterm-256color
 
-alias staticpy='python ~/Dropbox/github/staticpy/staticpy/main.py'
-
 function new_venv() {
-	cd ~/.virtual_environments
+	cd ~/.virtualenvs
 	virtualenv $1
 	cd - 
 }
 
-for d in ~/.virtual_environments/*
+for d in ~/.virtualenvs/*
 do
   if [ -d $d ]; then
     alias activate-$(basename $d)="source $d/bin/activate"
@@ -33,10 +15,9 @@ do
 done
 
 function list_virtual_envs() {
-	ls ~/.virtual_environments
+	ls ~/.virtualenvs
 }
 
-export PS1='\[$(tput bold)\]\[$(tput setaf 1)\][\t]\[$(tput setaf 2)\]$(__git_ps1 " (%s)") \[$(tput setaf 4)\]\u@\h: \[$(tput setaf 7)\]\w\n$ \[$(tput sgr0)\]'
 
 if [ -f ~/.bashrc ]; then
    source ~/.bashrc
@@ -69,10 +50,18 @@ function add_goto_aliases() {
   done
 }
 
+function set_up_vagrant_directory() {
+  for d in `ls $1`
+  do
+    alias vagrant-$d="(cd $1/$d; vagrant ssh)"
+  done
+}
+
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
 export GIT_PS1_SHOWDIRTYSTATE=true
+export PS1='\[$(tput bold)\]\[$(tput setaf 1)\][\t]\[$(tput setaf 2)\]$(__git_ps1 " (%s)") \[$(tput setaf 4)\]\u@\h: \[$(tput setaf 7)\]\w\n$ \[$(tput sgr0)\]'
 echo "Reloaded Bash Profile"
 
