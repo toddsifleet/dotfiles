@@ -65,3 +65,9 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export PS1='\[$(tput bold)\]\[$(tput setaf 1)\][\t]\[$(tput setaf 2)\]$(__git_ps1 " (%s)") \[$(tput setaf 4)\]\u@\h: \[$(tput setaf 7)\]\w\n$ \[$(tput sgr0)\]'
 echo "Reloaded Bash Profile"
 
+alias tag_python='ack -f --type=python . | ctags -L - -f .tags; ack -f --type=python $VIRTUAL_ENV | ctags -L - -f .tags_env'
+
+alias hist='history | grep'
+export HISTCONTROL=ignoredups
+
+alias remove_swap="find . -name '.*.swp' -exec rm -f '{}' ';'"
