@@ -1,12 +1,13 @@
 set nocompatible
 
 " having some issues with this at home
-" filetype plugin indent on
+filetype plugin indent on
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
+Bundle 'alfredodeza/pytest.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'ervandew/supertab'

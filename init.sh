@@ -24,8 +24,9 @@ then
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 fi
 
+brew update
 brew doctor
-brew_packages=('git' 'vim' 'tmux' 'python' 'ag' 'readline' 'openssl')
+brew_packages=('zsh' 'git' 'vim' 'tmux' 'python' 'ag' 'readline' 'openssl')
 for package in "${brew_packages[@]}"
 do
   installed=`brew list $package 2> /dev/null`;
