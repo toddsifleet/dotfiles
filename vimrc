@@ -25,6 +25,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'tacahiroy/ctrlp-funky'
 
 set backspace+=start,eol,indent
 set rnu
@@ -52,7 +53,9 @@ set ignorecase
 set smartcase
 
 colorscheme jellybeans
-set colorcolumn=81
+set colorcolumn=81,101
+
+let mapleader=","
 
 " tab management
 nmap <C-T>n :tabn<CR>
@@ -74,6 +77,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_root_markers = ['.ctrlp']
 let g:ctrlp_use_caching = 1
+let g:ctrlp_extensions = ['funky']
+nnoremap <Leader>fu :CtrlPFunky<Cr>
 
 " Configure ctrlp for SPEED
 if executable('ag')
