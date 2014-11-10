@@ -67,7 +67,7 @@ nnoremap <C-H> <C-W><C-H>
 " shortcuts
 nnoremap <space> zvzz
 
-autocmd BufWritePre *.yml,*sh,*.html,*.md,*.js,*.rb,*.js,*.hs,*.py,*.erb,*.coffee,*.styl :%s/\s\+$//e
+autocmd BufWritePre *.page,*.yml,*sh,*.html,*.md,*.js,*.rb,*.js,*.hs,*.py,*.erb,*.coffee,*.styl :%s/\s\+$//e
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " ctrlp stuff
