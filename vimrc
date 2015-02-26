@@ -70,21 +70,25 @@ nnoremap <C-H> <C-W><C-H>
 " shortcuts
 nnoremap <space> zvzz
 
-autocmd BufWritePre *.page,*.yml,*sh,*.html,*.md,*.js,*.rb,*.js,*.hs,*.py,*.erb,*.coffee,*.styl :%s/\s\+$//e
+autocmd BufWritePre *.page,*.yml,*sh,*.html,*.md,*.js,*.rb,*.js,*.hs,*.py,*.erb,*.coffee,*.styl,*.rst :%s/\s\+$//e
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
 " ctrlp stuff
 let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_root_markers = ['.ctrlp']
 let g:ctrlp_use_caching = 1
+
 let g:ctrlp_extensions = ['funky']
+
 nnoremap <Leader>fu :CtrlPFunky<Cr>
+command! CtrlPSample call ctrlp#init(ctrlp#sample#id())
 
 " Configure ctrlp for SPEED
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|env)$'
 
 " Find in Files
 command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args> * |cwindow|redraw!
