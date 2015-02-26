@@ -72,6 +72,5 @@ echo "Reloaded Bash Profile"
 alias tag_python='ack -f --type=python . | ctags -L - -f .tags; ack -f --type=python $VIRTUAL_ENV | ctags -L - -f .tags_env'
 
 alias hist='history | grep'
-export HISTCONTROL=ignoredups
 
 alias remove_swap="find . -name '.*.swp' -exec rm -f '{}' ';'"
