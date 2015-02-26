@@ -1,10 +1,11 @@
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" having some issues with this at home
+filetype plugin indent on
 
-Plugin 'derekwyatt/vim-scala'
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
 Plugin 'gmarik/vundle'
@@ -25,9 +26,6 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tacahiroy/ctrlp-funky'
-
-call vundle#end()
-filetype plugin indent on
 
 set backspace+=start,eol,indent
 set rnu
@@ -143,6 +141,7 @@ function! TogglePasteMode()
 endfunction
 
 map <F2> :call TogglePasteMode()<CR>
+set clipboard=unnamed
 
 
 " ctags
