@@ -1,7 +1,5 @@
 set nocompatible
-
-" having some issues with this at home
-filetype plugin indent on
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -45,6 +43,7 @@ au FileType python setl sw=4 sts=4
 
 syntax enable
 filetype plugin indent on
+
 " searching
 set hlsearch
 set showmatch
