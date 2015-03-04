@@ -24,6 +24,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'digitaltoad/vim-jade'
 call vundle#end()
 
 set backspace+=start,eol,indent
