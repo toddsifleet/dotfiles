@@ -89,7 +89,11 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|env)$'
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|node_modules$\|env$\|dist$\|\.egg-info$\|build$',
+  \ 'file': '\.pyc$\|\.swp$'
+  \ }
 
 " Find in Files
 command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args> * |cwindow|redraw!
@@ -153,7 +157,7 @@ set clipboard=unnamed
 set tags=./.tags;
 
 " nerdtree
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', 'build$', 'dist$', 'env$', '.*\.egg-info']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 function! StartUp()
     if 0 == argc()
