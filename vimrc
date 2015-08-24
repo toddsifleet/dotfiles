@@ -15,7 +15,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'othree/html5.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'stefanoverna/vim-i18n'
 Plugin 'tComment'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
@@ -25,6 +24,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'digitaltoad/vim-jade'
+Plugin 'fatih/vim-go'
+
 call vundle#end()
 
 set backspace+=start,eol,indent
