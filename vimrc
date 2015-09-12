@@ -4,25 +4,21 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
-Plugin 'gmarik/vundle'
 Plugin 'alfredodeza/pytest.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'othree/html5.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tComment'
-Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'fatih/vim-go'
 
