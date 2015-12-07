@@ -88,7 +88,7 @@ if executable('ag')
 endif
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|node_modules$\|env$\|dist$\|\.egg-info$\|build$',
+  \ 'dir':  '^__pycache__$|\.git$\|node_modules$\|env$\|dist$\|\.egg-info$\|build$',
   \ 'file': '\.pyc$\|\.swp$'
   \ }
 
@@ -154,7 +154,7 @@ set clipboard=unnamed
 set tags=./.tags;
 
 " nerdtree
-let NERDTreeIgnore = ['\.pyc$', 'build$', 'dist$', 'env$', '.*\.egg-info']
+let NERDTreeIgnore = ['__pycache__', '\.pyc$', 'build$', 'dist$', 'env$', '.*\.egg-info']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 function! StartUp()
     if 0 == argc()
