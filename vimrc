@@ -21,6 +21,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'fatih/vim-go'
+Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'tpope/vim-unimpaired'
 
 call vundle#end()
 
@@ -96,24 +98,13 @@ let g:ctrlp_custom_ignore = {
 command -nargs=+ -complete=file -bar FindInFiles silent! grep! <args> * |cwindow|redraw!
 map <C-S-F> :FindInFiles<SPACE>
 
-
-" Rspec.vim mappings
-let g:rspec_command = "Dispatch rspec {spec}"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-vmap <Leader>t :call I18nTranslateString()<CR>
-
-function! UseZeus()
-  let g:rspec_command = "Dispatch zeus rspec {spec}"
+map <Leader>gr :call FindInRepo()<CR>
+function! FindInRepo()
+  let wordUnderCursor = expand("<cword>")
+  execute 'silent! Ggrep! ' . wordUnderCursor | cw | redraw!
 endfunction
-command! UseZeus call UseZeus()
 
-function! NoZeus()
-  let g:rspec_command = "Dispatch rspec {spec}"
-endfunction
-command! NoZeus call NoZeus()
+command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
 
 " Lightline
 function! CurrentFilename()
@@ -139,16 +130,6 @@ let g:lightline = {
   \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
   \ }
 \ }
-
-" Toggle Paste-Mode Helper
-function! TogglePasteMode()
-  set paste!
-  redraw!
-endfunction
-
-map <F2> :call TogglePasteMode()<CR>
-set clipboard=unnamed
-
 
 " ctags
 set tags=./.tags;
