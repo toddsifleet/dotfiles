@@ -1,5 +1,6 @@
 /* export PIP_REQUIRE_VIRTUALENV=true */
 export TERM=xterm-256color
+export PATH=~/.local/bin:$PATH
 
 function new_venv() {
 	cd ~/.virtualenvs

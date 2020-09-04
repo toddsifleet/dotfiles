@@ -6,6 +6,9 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+
+Plugin 'racer-rust/vim-racer'
+Plugin 'rust-lang/rust.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
 Plugin 'alfredodeza/pytest.vim'
@@ -23,6 +26,7 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'fatih/vim-go'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'dense-analysis/ale'
 
 call vundle#end()
 
@@ -88,6 +92,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --ignore\ tags
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+let g:ctrlp_custom_ignore = 'git|datasets'
 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '^__pycache__$|\.git$\|node_modules$\|env$\|dist$\|\.egg-info$\|build$',
@@ -150,3 +155,18 @@ function! InsertPDBLine()
   let trace = expand("import ipdb\nipdb.set_trace()")
   execute "normal o".trace
 endfunction
+
+
+" go stuff
+let g:go_fmt_command="goimports"
+
+" Tor stuff
+autocmd FileType yaml setlocal ts =2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>
+" let b:ale_fixers=['autopep8', 'yapf']
+let g:ale_fixers={'python': ['autopep8', 'yapf']}
+let g:ale_fix_on_save=1
+
+
+" rust stuff
+set hidden
+let g:racer_cmd = "/home/user/.cargo/bin/racer"
